@@ -1,10 +1,19 @@
 {
-    "manifest_version": 3,
-    "name": "Hello Extensions",
-    "description": "Base Level Extension",
-    "version": "1.0",
-    "action": {
-      "default_popup": "hello.html",
-      "default_icon": "hello_extensions.png"
-    }
-  }
+  "name": "SteamCode Chrome Extension", 
+  "description": "Sample Chrome Extension", 
+  "version": "1.0",
+  "manifest_version": 3, 
+  "background": {
+      "service_worker": "background.js"
+  },
+  "permissions": ["storage", "activeTab", "contextMenus"],
+  "action": {
+      "default_popup": "popup.html"
+  }, 
+  "content_scripts": [
+      {
+          "matches": ["https://*.google.com/*"],
+          "js": ["content.js"]
+      }
+  ]
+}
